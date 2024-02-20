@@ -35,8 +35,14 @@
             <ul
                 v-if="tasks.length > 0" 
                 class="list-group"
-                :class=" tasks.length > 4 ? 'border border-danger border-5' : '' "
-
+            
+                style="border: solid 6px transparent;"
+                :style="
+                    {
+                        borderColor: tasks.length > 4 ? 'red' : 'transparent',
+                        borderWidth: tasks.length + 'px',
+                    }
+                "
             >
             
                 <li v-for="(currentTask, index) in tasks" class="task list-group-item d-flex justify-content-between align-items-center">
@@ -44,7 +50,7 @@
                     <i @click="deleteTask(index)" class="fa-regular fa-square-check"></i>
                 </li>
             </ul>
-            
+
             <div v-else class="bg-success p-3 text-white rounded-2 ">
                 Hai completato i task per oggi ☀️
             </div>
