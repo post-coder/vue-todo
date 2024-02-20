@@ -32,6 +32,9 @@ createApp({
 
             this.tasks.push(this.newTask)
 
+            // cancello il contenuto del campo di input
+            this.newTask = "";
+
         },
     },
 
