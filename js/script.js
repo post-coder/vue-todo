@@ -1,23 +1,38 @@
+const {createApp} = Vue;
 
+createApp({
+    data() {
+        return {
 
-// Spread Operator
-// Operatore di spargimento
-// ...
+            newTask: '',
 
+            tasks: [
+                "Fare la spesa",
+                "Pagare il commercialista",
+                "Comprare l'ammorbidente"
+            ],
 
-const persona = {
-    nome: "Eleazaro",
-    cognome: "Rossi",
-    eta: 41
-}
+        }
+    },
 
+    methods: {
 
-const nuovaPersona = {...persona};
+        deleteTask(taskIndex) {
+            // elimino dall'array tasks l'elemento che corrisponde all'indice riportato nel parametro
 
+            this.tasks.splice(taskIndex, 1);
 
-persona.nome = "Mario";
-persona.eta = 20;
+        },
 
-// gli oggetti in JS sono per riferimento
+        addTask() {
 
-console.log(nuovaPersona)
+            // aggiungo il testo scritto dentro il campo di input alla lista dei task
+            // testo del campo di input:
+            // console.log(this.newTask)
+
+            this.tasks.push(this.newTask)
+
+        },
+    },
+
+}).mount("#app");
